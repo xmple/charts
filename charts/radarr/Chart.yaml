@@ -7,7 +7,7 @@ keywords:
   - radarr
   - usenet
   - bittorrent
-home: https://github.com/billimek/billimek-charts/tree/master/radarr
+home: https://github.com/xmple/charts/tree/master/charts/radarr
 icon: https://avatars3.githubusercontent.com/u/25025331?s=400&v=4
 sources:
   - https://hub.docker.com/r/linuxserver/radarr/

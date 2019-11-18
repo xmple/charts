@@ -6,7 +6,7 @@ version: 2.0.9
 keywords:
   - nzbget
   - usenet
-home: https://github.com/billimek/billimek-charts/tree/master/nzbget
+home: https://github.com/xmple/charts/tree/master/charts/nzbget
 icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
 sources:
   - https://hub.docker.com/r/linuxserver/nzbget/

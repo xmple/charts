@@ -7,7 +7,7 @@ keywords:
   - sonarr
   - usenet
   - bittorrent
-home: https://github.com/billimek/billimek-charts/tree/master/sonarr
+home: https://github.com/xmple/charts/tree/master/charts/sonarr
 icon: https://avatars1.githubusercontent.com/u/1082903?s=400&v=4
 sources:
   - https://hub.docker.com/r/linuxserver/sonarr/
