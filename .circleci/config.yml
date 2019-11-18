@@ -8,5 +8,5 @@ jobs:
       - run:
           name: helm-github-pages
           environment:
-            - GITHUB_PAGES_REPO: xmple/helm-charts
+            - GITHUB_PAGES_REPO: xmple/charts
           command: wget -O - https://raw.githubusercontent.com/xmple/helm-github-pages/master/publish.sh | sh
