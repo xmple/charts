@@ -53,26 +53,6 @@ entries:
     urls:
     - radarr/radarr-2.0.8.tgz
     version: 2.0.8
-  rtorrent:
-  - apiVersion: v1
-    appVersion: 1.0.0
-    created: "2019-11-19T16:33:04.741001928Z"
-    description: rtorrent and flood co-located in the same deployment
-    digest: d05c9511ee33fb427618e8acadfa4201aa2be173a568f5a06dea5bd44962590e
-    home: https://github.com/xmple/charts/tree/master/charts/rtorrent
-    icon: https://github.com/jfurrow/flood/blob/master/flood.png?raw=true
-    keywords:
-    - rtorrent
-    - flood
-    - torrrent
-    name: rtorrent
-    sources:
-    - https://hub.docker.com/r/looselyrigorous/rtorrent
-    - https://github.com/looselyrigorous/docker-rtorrent
-    - https://github.com/Flood-UI/flood
-    urls:
-    - rtorrent/rtorrent-3.1.5.tgz
-    version: 3.1.5
   sonarr:
   - apiVersion: v1
     appVersion: amd64-2.0.0.5321-ls62
