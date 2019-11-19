@@ -1,7 +1,7 @@
 apiVersion: v1
 description: rtorrent and flood co-located in the same deployment
 name: rtorrent
-version: 0.1.1
+version: 0.1.2
 keywords:
   - rtorrent
   - flood
