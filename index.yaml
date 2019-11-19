@@ -3,9 +3,9 @@ entries:
   nzbget:
   - apiVersion: v1
     appVersion: v21.0-ls14
-    created: "2019-11-19T16:44:55.412749952Z"
+    created: "2019-11-19T17:03:01.157877424Z"
     description: NZBGet is a Usenet downloader client
-    digest: 3a21b2c7ff0f36eab209e279a60cd22fae9d3887bbcf632124a852acb27a48a5
+    digest: d9c71dfd6939db1ff2d15c1580ec0014ce9e9c8b893ec3f8a6398ca0dbc6d340
     home: https://github.com/xmple/charts/tree/master/charts/nzbget
     icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
     keywords:
@@ -21,9 +21,9 @@ entries:
   qbittorrent:
   - apiVersion: v1
     appVersion: 4.1.9
-    created: "2019-11-19T16:44:55.413133429Z"
+    created: "2019-11-19T17:03:01.158220754Z"
     description: qBittorrent is a cross-platform free and open-source BitTorrent client
-    digest: 1c95300cf2ec5efa33062120b9cb7586683545c8a60cf5ecb5ad76795eb9d905
+    digest: f3434e19e047a52902faf6bee281492df65ae85db48b8cfe2c47a9d9c5d198b9
     home: https://github.com/xmple/charts/tree/master/charts/qbittorrent
     icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
     keywords:
@@ -37,9 +37,9 @@ entries:
   radarr:
   - apiVersion: v1
     appVersion: amd64-v0.2.0.1344-ls17
-    created: "2019-11-19T16:44:55.413586211Z"
+    created: "2019-11-19T17:03:01.158629767Z"
     description: Radarr is a movie downloading client
-    digest: 23b44ca0295096e7483edc970fea8633686044f2fb0d77c1dba12a2cb4e70175
+    digest: 99374bc8e5a8e7813f4e2f8c574e716fad98246a1822bf27e40d876e47688d9d
     home: https://github.com/xmple/charts/tree/master/charts/radarr
     icon: https://avatars3.githubusercontent.com/u/25025331?s=400&v=4
     keywords:
@@ -55,7 +55,23 @@ entries:
     version: 2.0.8
   rtorrent:
   - apiVersion: v1
-    created: "2019-11-19T16:44:55.414528601Z"
+    created: "2019-11-19T17:03:01.159926744Z"
+    description: rtorrent and flood co-located in the same deployment
+    digest: 773350778fb157f422b625ed77f43f2bbaa3add957d880a3b1215370112ff62a
+    home: https://github.com/xmple/charts/tree/master/charts/rtorrent
+    icon: https://github.com/jfurrow/flood/blob/master/flood.png?raw=true
+    keywords:
+    - rtorrent
+    - flood
+    name: rtorrent
+    sources:
+    - https://github.com/linuxserver/docker-rutorrent
+    - https://github.com/Flood-UI/flood
+    urls:
+    - rtorrent/rtorrent-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2019-11-19T17:03:01.158997923Z"
     description: rtorrent and flood co-located in the same deployment
     digest: bbda227f859e78376cb90733e8c3a867986838fab90195cf4ee0eb4c6fd38c87
     home: https://github.com/xmple/charts/tree/master/charts/rtorrent
@@ -73,9 +89,9 @@ entries:
   sonarr:
   - apiVersion: v1
     appVersion: amd64-2.0.0.5321-ls62
-    created: "2019-11-19T16:44:55.414978579Z"
+    created: "2019-11-19T17:03:01.160324638Z"
     description: Sonarr is a television show downloading client
-    digest: 74b6eeaa27b379210697d9a54c9b65f76aaff664bbd25445c9c01a515c9f563c
+    digest: ea815ca7988f35179642aa94be874a69d3b1c251f6f5cd45c81ed762c7d907c7
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
     icon: https://avatars1.githubusercontent.com/u/1082903?s=400&v=4
     keywords:
@@ -89,4 +105,4 @@ entries:
     urls:
     - sonarr/sonarr-2.0.7.tgz
     version: 2.0.7
-generated: "2019-11-19T16:44:55.412154474Z"
+generated: "2019-11-19T17:03:01.157340664Z"
