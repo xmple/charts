@@ -32,22 +32,28 @@ spec:
           image: "{{ .Values.rtorrent.image.repository }}:{{ .Values.rtorrent.image.tag }}"
           imagePullPolicy: {{ .Values.rtorrent.image.pullPolicy }}
           ports:
-            - name: bt
-              containerPort: 49161
+            - name: http
+              containerPort: 80
               protocol: TCP
-          tty: true
+            - name: scgi
+              containerPort: 5000
+              protocol: TCP
+            - name: dht
+              containerPort: 6881
+              protocol: UDP
+            - name: bt
+              containerPort: 51413
+              protocol: TCP
           livenessProbe:
             tcpSocket:	
-              port: bt
+              port: http
           readinessProbe:
             tcpSocket:
-              port: bt
+              port: http
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
           env:
-            - name: TZ
-              value: "{{ .Values.timezone }}"
             - name: PUID
               value: "{{ .Values.uid }}"
             - name: PGID
@@ -55,20 +61,11 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            - mountPath: /data
+            - mountPath: /downloads
               name: data
             {{- if .Values.persistence.data.subPath }}
               subPath: {{ .Values.persistence.data.subPath }}
             {{ end }}
-            - mountPath: /session
-              name: data
-            {{- if .Values.persistence.data.subPath }}
-              subPath: {{ .Values.persistence.data.subPath }}/.session
-            {{- else }}
-              subPath: .session
-            {{ end }}
-            - mountPath: /socket
-              name: socket
           resources:
 {{ toYaml .Values.rtorrent.resources | indent 12 }}
         - name: {{ .Chart.Name }}-flood
@@ -96,16 +93,14 @@ spec:
               value: "{{ .Values.timezone }}"
             - name: FLOOD_SECRET
               value: "{{ .Values.floodSecret }}"
-            - name: RTORRENT_SOCK
-              value: "true"
+            - name: RTORRENT_SCGI_HOST
+              value: "{{ .Chart.Name }}-rtorrent"
           volumeMounts:
             - mountPath: /data
               name: data
             {{- if .Values.persistence.data.subPath }}
               subPath: {{ .Values.persistence.data.subPath }}
             {{ end }}
-            - mountPath: /tmp
-              name: socket
           resources:
 {{ toYaml .Values.flood.resources | indent 12 }}
       volumes:
@@ -123,8 +118,6 @@ spec:
       {{- else }}
         emptyDir: {}
       {{ end }}
-      - name: socket
-        emptyDir: {}
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}

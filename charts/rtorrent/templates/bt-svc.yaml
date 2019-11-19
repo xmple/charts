@@ -47,6 +47,13 @@ spec:
 {{ if (and (eq .Values.btService.type "NodePort") (not (empty .Values.btService.nodePort))) }}
       nodePort: {{.Values.btService.nodePort}}
 {{ end }}
+    - name: dht
+      port: {{ .Values.dhtService.port }}
+      protocol: TCP
+      targetPort: dht
+{{ if (and (eq .Values.dhtService.type "NodePort") (not (empty .Values.dhtService.nodePort))) }}
+      nodePort: {{.Values.dhtService.nodePort}}
+{{ end }}
   selector:
     app.kubernetes.io/name: {{ include "rtorrent-flood.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

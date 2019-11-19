@@ -16,7 +16,7 @@ gid: 1001
 rtorrent:
   enabled: true
   image:
-    repository: billimek/rtorrent
+    repository: linuxserver/rutorrent
     tag: latest
     pullPolicy: Always
   resources:
@@ -64,7 +64,7 @@ guiService:
 
 btService:
   type: NodePort
-  port: 49161
+  port: 51413
   ## Specify the nodePort value for the LoadBalancer and NodePort service types.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
@@ -83,6 +83,26 @@ btService:
   ## Set the externalTrafficPolicy in the Service to either Cluster or Local
   # externalTrafficPolicy: Cluster
 
+dhtService:
+  type: NodePort
+  port: 6881
+  ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+  ##
+  # nodePort:
+  ## Provide any additional annotations which may be required. This can be used to
+  ## set the LoadBalancer service type to internal only.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
+  ##
+  annotations: {}
+  labels: {}
+  ## Use loadBalancerIP to request a specific static IP,
+  ## otherwise leave blank
+  ##
+  loadBalancerIP:
+  # loadBalancerSourceRanges: []
+  ## Set the externalTrafficPolicy in the Service to either Cluster or Local
+  # externalTrafficPolicy: Cluster
 
 ingress:
   enabled: false
