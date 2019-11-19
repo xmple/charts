@@ -32,9 +32,6 @@ spec:
           image: "{{ .Values.rtorrent.image.repository }}:{{ .Values.rtorrent.image.tag }}"
           imagePullPolicy: {{ .Values.rtorrent.image.pullPolicy }}
           ports:
-            - name: ui
-              containerPort: 80
-              protocol: TCP
             - name: scgi
               containerPort: 5000
               protocol: TCP
@@ -68,6 +65,17 @@ spec:
             {{ end }}
           resources:
 {{ toYaml .Values.rtorrent.resources | indent 12 }}
+        - name: {{ .Chart.Name }}-scgi
+          image: nginx:1.13.12
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: scgi-conf
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: nginx.conf
+          ports:
+            - name: rpc
+              containerPort: 80
+              protocol: TCP
         - name: {{ .Chart.Name }}-flood
           image: "{{ .Values.flood.image.repository }}:{{ .Values.flood.image.tag }}"
           imagePullPolicy: {{ .Values.flood.image.pullPolicy }}
@@ -94,9 +102,9 @@ spec:
             - name: FLOOD_SECRET
               value: "{{ .Values.floodSecret }}"
             - name: RTORRENT_SCGI_HOST
-              value: "{{ .Chart.Name }}-rtorrent"
+              value: "127.0.0.1"
             - name: RTORRENT_SCGI_PORT
-              value: "5000"
+              value: "80"
           volumeMounts:
             - mountPath: /data
               name: data
@@ -120,6 +128,9 @@ spec:
       {{- else }}
         emptyDir: {}
       {{ end }}
+      - name: scgi-conf
+        configMap:
+          name: {{ template "rtorrent-flood.fullname" . }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}

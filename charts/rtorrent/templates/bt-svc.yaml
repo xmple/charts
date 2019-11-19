@@ -49,7 +49,7 @@ spec:
 {{ end }}
     - name: dht
       port: {{ .Values.dhtService.port }}
-      protocol: TCP
+      protocol: UDP
       targetPort: dht
 {{ if (and (eq .Values.dhtService.type "NodePort") (not (empty .Values.dhtService.nodePort))) }}
       nodePort: {{.Values.dhtService.nodePort}}

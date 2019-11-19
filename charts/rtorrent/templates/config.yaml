@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "rtorrent-flood.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "rtorrent-flood.name" . }}
+    helm.sh/chart: {{ include "rtorrent-flood.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+
+data:
+{{- with .Values.extraConfig }}
+  rtorrent_extra.rc:
+{{ toYaml . | indent 4 }}
+{{- end }}
+
+  nginx.conf: |
+    server {
+      listen 0.0.0.0:80;
+      access_log /var/log/nginx/rtorrent.access_log;
+      error_log /var/log/nginx/rtorrent.error_log;
+      location /RPC2 {
+        scgi_pass   127.0.0.1:5000;
+        include     scgi_params;
+      }
+    }
