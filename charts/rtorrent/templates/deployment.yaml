@@ -95,6 +95,8 @@ spec:
               value: "{{ .Values.floodSecret }}"
             - name: RTORRENT_SCGI_HOST
               value: "{{ .Chart.Name }}-rtorrent"
+            - name: RTORRENT_SCGI_PORT
+              value: 5000
           volumeMounts:
             - mountPath: /data
               name: data

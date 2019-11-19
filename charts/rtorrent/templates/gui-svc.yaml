@@ -40,10 +40,10 @@ spec:
   externalTrafficPolicy: {{ .Values.guiService.externalTrafficPolicy }}
   {{- end }}
   ports:
-    - name: ui
+    - name: http
       port: {{ .Values.guiService.port }}
       protocol: TCP
-      targetPort: ui
+      targetPort: http
 {{ if (and (eq .Values.guiService.type "NodePort") (not (empty .Values.guiService.nodePort))) }}
       nodePort: {{.Values.guiService.nodePort}}
 {{ end }}
