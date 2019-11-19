@@ -5,8 +5,8 @@ This is a helm chart for [NZBGet](https://nzbget.net/) leveraging the [Linuxserv
 ## TL;DR;
 
 ```shell
-$ helm repo add billimek https://billimek.com/billimek-charts/
-$ helm install billimek/nzbget
+$ helm repo add xmple https://xmple.github.io/charts/
+$ helm install xmple/nzbget
 ```
 
 ## Installing the Chart
@@ -14,7 +14,7 @@ $ helm install billimek/nzbget
 To install the chart with the release name `my-release`:
 
 ```console
-helm install --name my-release billimek/nzbget
+helm install --name my-release xmple/nzbget
 ```
 
 The default login details (change ASAP) are:
@@ -78,7 +78,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 ```console
 helm install --name my-release \
   --set timezone="America/New York" \
-    billimek/nzbget
+    xmple/nzbget
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,

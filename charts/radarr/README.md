@@ -5,8 +5,8 @@ This is a helm chart for [radarr](https://github.com/Radarr/Radarr/) leveraging 
 ## TL;DR;
 
 ```shell
-$ helm repo add billimek https://billimek.com/billimek-charts/
-$ helm install billimek/radarr
+$ helm repo add xmple https://xmple.github.io/charts/
+$ helm install xmple/radarr
 ```
 
 ## Installing the Chart
@@ -14,7 +14,7 @@ $ helm install billimek/radarr
 To install the chart with the release name `my-release`:
 
 ```console
-helm install --name my-release billimek/radarr
+helm install --name my-release xmple/radarr
 ```
 
 ## Uninstalling the Chart
@@ -79,7 +79,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 ```console
 helm install --name my-release \
   --set timezone="America/New York" \
-    billimek/radarr
+    xmple/radarr
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
