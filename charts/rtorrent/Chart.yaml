@@ -13,6 +13,3 @@ sources:
   - https://hub.docker.com/r/looselyrigorous/rtorrent
   - https://github.com/looselyrigorous/docker-rtorrent
   - https://github.com/Flood-UI/flood
-maintainers:
-  - name: billimek
-    email: jeff@billimek.com
