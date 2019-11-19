@@ -32,7 +32,7 @@ spec:
           image: "{{ .Values.rtorrent.image.repository }}:{{ .Values.rtorrent.image.tag }}"
           imagePullPolicy: {{ .Values.rtorrent.image.pullPolicy }}
           ports:
-            - name: http
+            - name: ui
               containerPort: 80
               protocol: TCP
             - name: scgi
@@ -46,10 +46,10 @@ spec:
               protocol: TCP
           livenessProbe:
             tcpSocket:	
-              port: http
+              port: bt
           readinessProbe:
             tcpSocket:
-              port: http
+              port: bt
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
