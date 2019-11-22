@@ -37,11 +37,12 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /login
               port: http
+            initialDelaySeconds: 60
           readinessProbe:
             httpGet:
-              path: /
+              path: /login
               port: http
           env:
             - name: TZ
