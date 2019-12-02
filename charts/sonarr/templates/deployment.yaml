@@ -1,20 +1,22 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "sonarr.fullname" . }}
   labels:
     app.kubernetes.io/name: {{ include "sonarr.name" . }}
-    helm.sh/chart: {{ include "sonarr.chart" . }}
+    app.kubernetes.io/part-of: {{ include "sonarr.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ include "sonarr.chart" . }}
 spec:
-  replicas: 1
-  strategy:
-    type: {{ .Values.strategyType }}
+  updateStrategy:
+    type: {{ .Values.updateStrategyType }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "sonarr.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
+  serviceName: {{ include "sonarr.name" . }}
+  replicas: 1
   template:
     metadata:
       labels:
