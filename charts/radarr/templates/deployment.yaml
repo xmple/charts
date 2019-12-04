@@ -1,20 +1,22 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "radarr.fullname" . }}
   labels:
     app.kubernetes.io/name: {{ include "radarr.name" . }}
-    helm.sh/chart: {{ include "radarr.chart" . }}
+    app.kubernetes.io/part-of: {{ include "radarr.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ include "radarr.chart" . }}
 spec:
-  replicas: 1
-  strategy:
-    type: {{ .Values.strategyType }}
+  updateStrategy:
+    type: {{ .Values.updateStrategyType }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "radarr.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
+  serviceName: {{ include "radarr.name" . }}
+  replicas: 1
   template:
     metadata:
       labels:
@@ -67,43 +69,43 @@ spec:
               readOnly: {{ .readOnly }}
             {{- end }}
           resources:
-{{ toYaml .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-      - name: config
-      {{- if .Values.persistence.config.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "radarr.fullname" . }}-config{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
-      - name: downloads
-      {{- if .Values.persistence.downloads.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.downloads.existingClaim }}{{ .Values.persistence.downloads.existingClaim }}{{- else }}{{ template "radarr.fullname" . }}-downloads{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
-      - name: movies
-      {{- if .Values.persistence.movies.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.movies.existingClaim }}{{ .Values.persistence.movies.existingClaim }}{{- else }}{{ template "radarr.fullname" . }}-movies{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
-      {{- range .Values.persistence.extraExistingClaimMounts }}
-      - name: {{ .name }}
-        persistentVolumeClaim:
-          claimName: {{ .existingClaim }}
-      {{- end }}
-    {{- with .Values.nodeSelector }}
+        - name: config
+        {{- if .Values.persistence.config.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "radarr.fullname" . }}-config{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: downloads
+        {{- if .Values.persistence.downloads.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.downloads.existingClaim }}{{ .Values.persistence.downloads.existingClaim }}{{- else }}{{ template "radarr.fullname" . }}-downloads{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: movies
+        {{- if .Values.persistence.movies.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.movies.existingClaim }}{{ .Values.persistence.movies.existingClaim }}{{- else }}{{ template "radarr.fullname" . }}-movies{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        {{- range .Values.persistence.extraExistingClaimMounts }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ .existingClaim }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
       affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
       tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

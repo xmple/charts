@@ -59,29 +59,29 @@ spec:
           resources:
             {{- toYaml .Values.resources | indent 12 }}
       volumes:
-      - name: config
-      {{- if .Values.persistence.config.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "nzbget.fullname" . }}-config{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{ end }}
-      - name: downloads
-      {{- if .Values.persistence.downloads.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.downloads.existingClaim }}{{ .Values.persistence.downloads.existingClaim }}{{- else }}{{ template "nzbget.fullname" . }}-downloads{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{ end }}
-    {{- with .Values.nodeSelector }}
+        - name: config
+        {{- if .Values.persistence.config.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "nzbget.fullname" . }}-config{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{ end }}
+        - name: downloads
+        {{- if .Values.persistence.downloads.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.downloads.existingClaim }}{{ .Values.persistence.downloads.existingClaim }}{{- else }}{{ template "nzbget.fullname" . }}-downloads{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{ end }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
-    {{- toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
       affinity:
-    {{- toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
       tolerations:
-    {{- toYaml . | indent 8 }}
-    {{- end }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

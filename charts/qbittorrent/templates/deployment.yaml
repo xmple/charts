@@ -4,9 +4,10 @@ metadata:
   name: {{ template "qbittorrent.fullname" . }}
   labels:
     app.kubernetes.io/name: {{ include "qbittorrent.name" . }}
-    helm.sh/chart: {{ include "qbittorrent.chart" . }}
+    app.kubernetes.io/part-of: {{ include "qbittorrent.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ include "qbittorrent.chart" . }}
 spec:
   replicas: 1
   strategy:
@@ -67,31 +68,36 @@ spec:
               subPath: {{ .Values.persistence.data.subPath }}
             {{ end }}
           resources:
-{{ toYaml .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-      - name: config
-      {{- if .Values.persistence.config.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "qbittorrent.fullname" . }}-config{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{ end }}
-      - name: data
-      {{- if .Values.persistence.data.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.data.existingClaim }}{{ .Values.persistence.data.existingClaim }}{{- else }}{{ template "qbittorrent.fullname" . }}-data{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{ end }}
-    {{- with .Values.nodeSelector }}
+        - name: config
+        {{- if .Values.persistence.config.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "qbittorrent.fullname" . }}-config{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{ end }}
+        - name: data
+        {{- if .Values.persistence.data.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.data.existingClaim }}{{ .Values.persistence.data.existingClaim }}{{- else }}{{ template "qbittorrent.fullname" . }}-data{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{ end }}
+        {{- range .Values.persistence.extraExistingClaimMounts }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ .existingClaim }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
       affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
       tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

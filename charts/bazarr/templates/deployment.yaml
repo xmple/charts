@@ -63,7 +63,7 @@ spec:
               readOnly: {{ .readOnly }}
             {{- end }}
           resources:
-            {{- toYaml .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: config
           {{- if .Values.persistence.config.enabled }}
@@ -76,16 +76,16 @@ spec:
         - name: {{ .name }}
           persistentVolumeClaim:
             claimName: {{ .existingClaim }}
-      {{- end }}
-    {{- with .Values.nodeSelector }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
-    {{- toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
       affinity:
-    {{- toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
       tolerations:
-    {{- toYaml . | indent 8 }}
-    {{- end }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
