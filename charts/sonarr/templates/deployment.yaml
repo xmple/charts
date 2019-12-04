@@ -72,7 +72,7 @@ spec:
               readOnly: {{ .readOnly }}
             {{- end }}
           resources:
-{{ toYaml .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | indent 12 }}
       volumes:
       - name: config
       {{- if .Values.persistence.config.enabled }}
@@ -102,13 +102,13 @@ spec:
       {{- end }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml . | indent 8 }}
+    {{- toYaml . | indent 8 }}
     {{- end }}
     {{- with .Values.affinity }}
       affinity:
-{{ toYaml . | indent 8 }}
+    {{- toYaml . | indent 8 }}
     {{- end }}
     {{- with .Values.tolerations }}
       tolerations:
-{{ toYaml . | indent 8 }}
+    {{- toYaml . | indent 8 }}
     {{- end }}
