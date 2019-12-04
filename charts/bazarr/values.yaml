@@ -16,6 +16,7 @@ fullnameOverride: ""
 timezone: UTC
 puid: 1001
 pgid: 1001
+umask: 007
 
 service:
   type: ClusterIP
