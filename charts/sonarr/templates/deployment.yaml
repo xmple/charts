@@ -53,6 +53,8 @@ spec:
               value: "{{ .Values.puid }}"
             - name: PGID
               value: "{{ .Values.pgid }}"
+            - name: UMASK_SET
+              value: "{{ .Values.umask }}"
           volumeMounts:
             - mountPath: /config
               name: config

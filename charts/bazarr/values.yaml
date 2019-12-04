@@ -5,7 +5,7 @@
 image:
   repository: linuxserver/bazarr
   tag: amd64-latest
-  pullPolicy: Latest
+  pullPolicy: IfNotPresent
 
 # upgrade strategy type (e.g. OnDelete or RollingUpdate)
 updateStrategyType: RollingUpdate

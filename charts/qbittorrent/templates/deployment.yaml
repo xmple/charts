@@ -57,8 +57,6 @@ spec:
               value: "{{ .Values.gid }}"
             - name: UMASK_SET
               value: "{{ .Values.umask }}"
-            # - name: WEBUI_PORT
-            #   value: "{{ .Values.guiService.port }}"
           volumeMounts:
             - mountPath: /config
               name: config
