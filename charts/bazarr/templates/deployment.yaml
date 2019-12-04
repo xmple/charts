@@ -57,6 +57,16 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
+            - mountPath: /tv
+              name: tv
+            {{- if .Values.persistence.tv.subPath }}
+              subPath: {{ .Values.persistence.tv.subPath }}
+            {{- end }}
+            - mountPath: /movies
+              name: movies
+            {{- if .Values.persistence.movies.subPath }}
+              subPath: {{ .Values.persistence.movies.subPath }}
+            {{- end }}
             {{- range .Values.persistence.extraExistingClaimMounts }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
@@ -72,6 +82,20 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
+        - name: tv
+        {{- if .Values.persistence.tv.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.tv.existingClaim }}{{ .Values.persistence.tv.existingClaim }}{{- else }}{{ template "bazarr.fullname" . }}-tv{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: movies
+        {{- if .Values.persistence.movies.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.movies.existingClaim }}{{ .Values.persistence.movies.existingClaim }}{{- else }}{{ template "bazarr.fullname" . }}-movies{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         {{- range .Values.persistence.extraExistingClaimMounts }}
         - name: {{ .name }}
           persistentVolumeClaim:

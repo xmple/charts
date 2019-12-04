@@ -6,9 +6,10 @@ metadata:
   name: {{ template "bazarr.fullname" . }}-config
   labels:
     app.kubernetes.io/name: {{ include "bazarr.name" . }}
-    helm.sh/chart: {{ include "bazarr.chart" . }}
+    app.kubernetes.io/part-of: {{ include "bazarr.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ include "bazarr.chart" . }}
 spec:
   accessModes:
     - {{ .Values.persistence.config.accessMode | quote }}
