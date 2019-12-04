@@ -53,8 +53,8 @@ spec:
             - name: PGID
               value: "{{ .Values.pgid }}"
           volumeMounts:
-            - name: config
-              mountPath: /config
+            - mountPath: /config
+              name: config
             {{- range .Values.persistence.extraExistingClaimMounts }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
@@ -63,17 +63,17 @@ spec:
           resources:
             {{- toYaml .Values.resources | indent 12 }}
       volumes:
-      - name: config
-        {{- if .Values.persistence.config.enabled }}
+        - name: config
+          {{- if .Values.persistence.config.enabled }}
           persistentVolumeClaim:
             claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "bazarr.fullname" . }}-config{{- end }}
-        {{- else }}
+          {{- else }}
           emptyDir: {}
-        {{- end }}
-      {{- range .Values.persistence.extraExistingClaimMounts }}
-      - name: {{ .name }}
-        persistentVolumeClaim:
-          claimName: {{ .existingClaim }}
+          {{- end }}
+        {{- range .Values.persistence.extraExistingClaimMounts }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ .existingClaim }}
       {{- end }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
