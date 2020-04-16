@@ -52,9 +52,9 @@ spec:
             - name: TZ
               value: "{{ .Values.timezone }}"
             - name: PUID
-              value: "{{ .Values.uid }}"
+              value: "{{ .Values.puid }}"
             - name: PGID
-              value: "{{ .Values.gid }}"
+              value: "{{ .Values.pgid }}"
             - name: UMASK_SET
               value: "{{ .Values.umask }}"
           volumeMounts:
