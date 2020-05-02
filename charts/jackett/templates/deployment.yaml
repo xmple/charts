@@ -69,8 +69,8 @@ spec:
               {{- end }}
             - mountPath: /downloads
               name: downloads
-              {{- if .Values.persistence.torrentblackhole.subPath }}
-              subPath: "{{ .Values.persistence.torrentblackhole.subPath }}"
+              {{- if .Values.persistence.downloads.subPath }}
+              subPath: "{{ .Values.persistence.downloads.subPath }}"
               {{- end }}
             {{- range .Values.persistence.extraExistingClaimMounts }}
             - name: {{ .name }}
