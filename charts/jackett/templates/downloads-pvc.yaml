@@ -7,7 +7,8 @@ metadata:
   {{- if .Values.persistence.downloads.skipuninstall }}
   annotations:
     "helm.sh/resource-policy": keep
-  {{- end }}  labels:
+  {{- end }}
+  labels:
     app.kubernetes.io/name: {{ include "jackett.name" . }}
     helm.sh/chart: {{ include "jackett.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
