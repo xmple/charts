@@ -1,0 +1,8 @@
+name: cert-manager-issuer
+description: cert-manager cluster issuers for Let's Encrypt
+version: 0.1.0
+keywords:
+  - cert-manager
+  - letsencrypt
+home: https://github.com/xmple/charts/tree/master/charts/cert-manager-issuer
+icon: https://github.com/jetstack/cert-manager/raw/master/logo/logo.png

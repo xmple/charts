@@ -1,0 +1,5 @@
+privateKeySecret:
+  production: letsencrypt-production
+  staging: letsencrypt-staging
+
+dnsSolvers: {}
