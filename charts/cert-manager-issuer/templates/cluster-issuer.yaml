@@ -5,7 +5,7 @@
 kind: ClusterIssuer
 apiVersion: cert-manager.io/v1alpha2
 metadata:
-  name: cluster-{{ include "issuer.fullname" . }}-{{ $rangeItem.name }}
+  name: {{ $rangeItem.name }}
   labels:
     {{- include "issuer.labels" . | nindent 4 }}
 spec:
