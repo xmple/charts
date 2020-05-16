@@ -1,0 +1,22 @@
+{{- range .Values.clusterIssuers }}
+{{- $rangeItem := . -}}
+{{- with $ }}
+---
+kind: ClusterIssuer
+apiVersion: cert-manager.io/v1alpha2
+metadata:
+  name: cluster-{{ include "issuer.fullname" . }}-{{ $rangeItem.name }}
+  labels:
+    {{- include "issuer.labels" . | nindent 4 }}
+spec:
+  acme:
+    server: {{ $rangeItem.acme.server | default "https://acme-v02.api.letsencrypt.org/directory" }}
+    email: {{ required "The 'email' value must be set!" $rangeItem.acme.email }}
+    privateKeySecretRef:
+      name: {{ $rangeItem.acme.privateKeySecret | default (printf "%s-account-key" $rangeItem.name) }}
+    solvers:
+      {{- if $rangeItem.dnsSolvers }}
+      - dns01: {{ $rangeItem.dnsSolvers | toJson }}
+      {{- end }}
+{{- end }}
+{{- end }}

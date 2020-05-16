@@ -1,5 +1,16 @@
-privateKeySecret:
-  production: letsencrypt-production
-  staging: letsencrypt-staging
+nameOverride: ""
+fullnameOverride: ""
 
-dnsSolvers: {}
+# clusterIssuers:
+#  - name: letsencrypt-production
+#    acme:
+#      email: my_le_acc@example.com
+#      server: https://acme-v02.api.letsencrypt.org/directory
+#      privateKeySecret: letsencrypt-production-account-ley
+#    dnsSolvers:
+#      cloudflare:
+#        email: my-cloudflare-acc@example.com
+#        apiTokenSecretRef:
+#          name: cloudflare-api-token-secret
+#          key: api-token
+clusterIssuers: {}
