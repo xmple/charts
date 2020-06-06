@@ -66,7 +66,6 @@ spec:
             {{- if .Values.persistence.movies.subPath }}
               subPath: {{ .Values.persistence.movies.subPath }}
             {{- end }}
-              name: config
             {{- if .Values.persistence.movies4k }}
             - mountPath: /movies4k
               name: movies4k
@@ -77,6 +76,7 @@ spec:
             {{- range .Values.persistence.extraExistingClaimMounts }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
+              subPath: {{ .subPath }}
               readOnly: {{ .readOnly }}
             {{- end }}
           resources:
