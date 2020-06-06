@@ -7,8 +7,8 @@ image:
   tag: amd64-latest
   pullPolicy: IfNotPresent
 
-# upgrade strategy type (e.g. OnDelete or RollingUpdate)
-updateStrategyType: RollingUpdate
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
 
 nameOverride: ""
 fullnameOverride: ""
@@ -87,6 +87,31 @@ persistence:
     accessMode: ReadWriteOnce
     size: 10Gi
   movies:
+    enabled: true
+    ## Directory where televion shows are persisted
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    # storageClass: "-"
+    ##
+    ## If you want to reuse an existing claim, you can pass the name of the PVC using
+    ## the existingClaim variable
+    # existingClaim: your-claim
+    # subPath: some-subpath
+    accessMode: ReadWriteOnce
+    size: 10Gi
+  extraExistingClaimMounts: []
+    # - name: external-mount
+    #   mountPath: /srv/external-mount
+    ## A manually managed Persistent Volume and Claim
+    ## If defined, PVC must be created manually before volume will be bound
+    #   existingClaim:
+    #   readOnly: true
+
+  movies4k:
     enabled: true
     ## Directory where televion shows are persisted
     ## If defined, storageClassName: <storageClass>

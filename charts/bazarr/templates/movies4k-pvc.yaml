@@ -1,0 +1,25 @@
+{{- if and .Values.persistence.movies4k.enabled (not .Values.persistence.movies4k.existingClaim) }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "bazarr.fullname" . }}-movies4k
+  labels:
+    app.kubernetes.io/name: {{ include "bazarr.name" . }}
+    app.kubernetes.io/part-of: {{ include "bazarr.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ include "bazarr.chart" . }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.movies4k.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.movies4k.size | quote }}
+{{- if .Values.persistence.movies4k.storageClass }}
+{{- if (eq "-" .Values.persistence.movies4k.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.movies4k.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end -}}

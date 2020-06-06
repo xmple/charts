@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deploymnet
 metadata:
   name: {{ include "bazarr.fullname" . }}
   labels:
@@ -9,14 +9,13 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
     helm.sh/chart: {{ include "bazarr.chart" . }}
 spec:
-  updateStrategy:
-    type: {{ .Values.updateStrategyType }}
+  replicas: 1
+  strategy:
+    type: {{ .Values.strategyType }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "bazarr.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
-  serviceName: {{ include "bazarr.name" . }}
-  replicas: 1
   template:
     metadata:
       labels:
