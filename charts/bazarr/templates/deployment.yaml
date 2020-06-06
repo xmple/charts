@@ -66,6 +66,14 @@ spec:
             {{- if .Values.persistence.movies.subPath }}
               subPath: {{ .Values.persistence.movies.subPath }}
             {{- end }}
+              name: config
+            {{- if .Values.persistence.movies4k }}
+            - mountPath: /movies4k
+              name: movies4k
+            {{- if .Values.persistence.movies4k.subPath }}
+              subPath: {{ .Values.persistence.movies4k.subPath }}
+            {{- end }}
+            {{- end }}
             {{- range .Values.persistence.extraExistingClaimMounts }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
@@ -94,6 +102,15 @@ spec:
             claimName: {{ if .Values.persistence.movies.existingClaim }}{{ .Values.persistence.movies.existingClaim }}{{- else }}{{ template "bazarr.fullname" . }}-movies{{- end }}
         {{- else }}
           emptyDir: {}
+        {{- end }}
+        {{- if .Values.persistence.movies4k }}
+        - name: movies4k
+        {{- if .Values.persistence.movies4k.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.movies4k.existingClaim }}{{ .Values.persistence.movies4k.existingClaim }}{{- else }}{{ template "bazarr.fullname" . }}-movies4k{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
         {{- end }}
         {{- range .Values.persistence.extraExistingClaimMounts }}
         - name: {{ .name }}
