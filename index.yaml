@@ -2,7 +2,27 @@ apiVersion: v1
 entries:
   bazarr:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.782400404Z"
+    created: "2020-06-06T20:09:48.922027732Z"
+    description: Bazarr is a companion application to Sonarr and Radarr. It can manage
+      and download subtitles based on your requirements. You define your preferences
+      by TV show or movie and Bazarr takes care of everything for you.
+    digest: 96fda6b6cf302be6cfa51b4c60c813e47468c0f89e1b404689b3ef4a4e2c79cc
+    home: https://github.com/xmple/charts/tree/master/charts/bazarr
+    icon: https://github.com/morpheus65535/bazarr/raw/master/static/logo128.png
+    keywords:
+    - bazarr
+    - sonarr
+    - radarr
+    - subtitles
+    name: bazarr
+    sources:
+    - https://github.com/morpheus65535/bazarr
+    - https://www.bazarr.media/
+    urls:
+    - bazarr/bazarr-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v1
+    created: "2020-06-06T20:09:48.917698403Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -22,7 +42,7 @@ entries:
     - bazarr/bazarr-0.1.7.tgz
     version: 0.1.7
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.781774963Z"
+    created: "2020-06-06T20:09:48.917094364Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -42,7 +62,7 @@ entries:
     - bazarr/bazarr-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.781111805Z"
+    created: "2020-06-06T20:09:48.916487895Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -62,7 +82,7 @@ entries:
     - bazarr/bazarr-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.78046277Z"
+    created: "2020-06-06T20:09:48.915929207Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -82,7 +102,7 @@ entries:
     - bazarr/bazarr-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.778763471Z"
+    created: "2020-06-06T20:09:48.915371649Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -102,7 +122,7 @@ entries:
     - bazarr/bazarr-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.778238977Z"
+    created: "2020-06-06T20:09:48.914796406Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -122,7 +142,7 @@ entries:
     - bazarr/bazarr-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.777670548Z"
+    created: "2020-06-06T20:09:48.914217368Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -142,7 +162,7 @@ entries:
     - bazarr/bazarr-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.777062875Z"
+    created: "2020-06-06T20:09:48.913563028Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It can manage
       and download subtitles based on your requirements. You define your preferences
       by TV show or movie and Bazarr takes care of everything for you.
@@ -163,9 +183,9 @@ entries:
     version: 0.1.0
   cert-manager-issuer:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.783087158Z"
+    created: "2020-06-06T20:09:48.92271636Z"
     description: cert-manager cluster issuers for Let's Encrypt
-    digest: 7af33b85e9f51a0c7940ac2864b0b5a9b86f8538076b45af6f04706a1689a682
+    digest: aa874d20d1059d34fb1499f713b85a6d6d64dda6559644c0c74d68a0d5d66143
     home: https://github.com/xmple/charts/tree/master/charts/cert-manager-issuer
     icon: https://github.com/jetstack/cert-manager/raw/master/logo/logo.png
     keywords:
@@ -176,7 +196,7 @@ entries:
     - cert-manager-issuer/cert-manager-issuer-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.782735376Z"
+    created: "2020-06-06T20:09:48.922398975Z"
     description: cert-manager cluster issuers for Let's Encrypt
     digest: 899c0f6a7b837a47b6918768604d94be4a44b1a5c97778550e4d38fd8a946fa3
     home: https://github.com/xmple/charts/tree/master/charts/cert-manager-issuer
@@ -190,9 +210,9 @@ entries:
     version: 0.1.0
   jackett:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.78375237Z"
+    created: "2020-06-06T20:09:48.923376162Z"
     description: API Support for your favorite torrent trackers
-    digest: 7e2ead60631e76276c15843b9606278f1696278cd5f6c7a790dbe9d9239ab25d
+    digest: 17dfb24904247707ae46fea0350d15e907adedf800ee5b34b473b587194232aa
     home: https://github.com/xmple/charts/tree/master/charts/jackett
     icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png
     keywords:
@@ -206,7 +226,7 @@ entries:
     - jackett/jackett-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.78444206Z"
+    created: "2020-06-06T20:09:48.924082899Z"
     description: API Support for your favorite torrent trackers
     digest: 580e043149dd0344c6c29422a4117de4c6a5aa3df420cb65646bc088633091cc
     home: https://github.com/xmple/charts/tree/master/charts/jackett
@@ -223,9 +243,9 @@ entries:
     version: "0.1"
   nzbget:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.787107416Z"
+    created: "2020-06-06T20:09:48.938965859Z"
     description: NZBGet is a Usenet downloader client
-    digest: 1a7a5fdecd1e3e014d4432eab559da9877869965f19577fc7ec9fa2b3199025d
+    digest: 0e8849c6ec22ee1f31096b3c2c4cfa27192c4bb8eb8f5292990570d9d3976e2f
     home: https://github.com/xmple/charts/tree/master/charts/nzbget
     icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
     keywords:
@@ -239,7 +259,7 @@ entries:
     - nzbget/nzbget-2.0.13.tgz
     version: 2.0.13
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.786384728Z"
+    created: "2020-06-06T20:09:48.938232307Z"
     description: NZBGet is a Usenet downloader client
     digest: 29a5187da7692ec84a0d9da7d2f6762e9dcdaa981932f89a16948eaf92c2e1d7
     home: https://github.com/xmple/charts/tree/master/charts/nzbget
@@ -255,7 +275,7 @@ entries:
     - nzbget/nzbget-2.0.12.tgz
     version: 2.0.12
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.785762282Z"
+    created: "2020-06-06T20:09:48.93737073Z"
     description: NZBGet is a Usenet downloader client
     digest: 6a5df3ec735891214c7654105506a66ace73bf653afa006413d7e6ad93135280
     home: https://github.com/xmple/charts/tree/master/charts/nzbget
@@ -272,7 +292,7 @@ entries:
     version: 2.0.11
   - apiVersion: v1
     appVersion: v21.0-ls14
-    created: "2020-06-06T20:05:00.785101041Z"
+    created: "2020-06-06T20:09:48.925304458Z"
     description: NZBGet is a Usenet downloader client
     digest: 018548a8e38fd3d0bce9812989ab5848e79211555bf1a1cd267449bda1c815be
     home: https://github.com/xmple/charts/tree/master/charts/nzbget
@@ -289,7 +309,7 @@ entries:
     version: 2.0.10
   - apiVersion: v1
     appVersion: v21.0-ls14
-    created: "2020-06-06T20:05:00.787782817Z"
+    created: "2020-06-06T20:09:48.9396891Z"
     description: NZBGet is a Usenet downloader client
     digest: 8faa2eeb5f246fd0a223f09ab774a1028ec87ceda8e1f2280eb4fd399a915383
     home: https://github.com/xmple/charts/tree/master/charts/nzbget
@@ -306,9 +326,9 @@ entries:
     version: 2.0.9
   qbittorrent:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.791046336Z"
+    created: "2020-06-06T20:09:48.953777374Z"
     description: qBittorrent is a cross-platform free and open-source BitTorrent client
-    digest: 75507bff757d58e970770a9333cc0f99f01b41a9ef5c1cab5cd6f3d195e3ea90
+    digest: f2b9c2292117fbee5ab7d47c787104ac6e22dc6b536ddf64e805bc6aeb3d8f4f
     home: https://github.com/xmple/charts/tree/master/charts/qbittorrent
     icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
     keywords:
@@ -320,7 +340,7 @@ entries:
     - qbittorrent/qbittorrent-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.790382343Z"
+    created: "2020-06-06T20:09:48.953072811Z"
     description: qBittorrent is a cross-platform free and open-source BitTorrent client
     digest: 2104055673b6b1effa137d4322ca052dac79947569ad7adba685f3b6b6511650
     home: https://github.com/xmple/charts/tree/master/charts/qbittorrent
@@ -334,7 +354,7 @@ entries:
     - qbittorrent/qbittorrent-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.789726448Z"
+    created: "2020-06-06T20:09:48.952388795Z"
     description: qBittorrent is a cross-platform free and open-source BitTorrent client
     digest: f8e17c57a5053163389607e4b0327a40a008c643efdc4acda4eff88fcfe205c4
     home: https://github.com/xmple/charts/tree/master/charts/qbittorrent
@@ -348,7 +368,7 @@ entries:
     - qbittorrent/qbittorrent-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.789033819Z"
+    created: "2020-06-06T20:09:48.94113361Z"
     description: qBittorrent is a cross-platform free and open-source BitTorrent client
     digest: a8840f75c500f5f2a98a1b37bed29d3833168d0fa211835a2dc5efe3a6e12517
     home: https://github.com/xmple/charts/tree/master/charts/qbittorrent
@@ -363,7 +383,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 4.1.9
-    created: "2020-06-06T20:05:00.788408287Z"
+    created: "2020-06-06T20:09:48.940409168Z"
     description: qBittorrent is a cross-platform free and open-source BitTorrent client
     digest: 9d9725a87a73f060f98d2c1b4a5498f0001976b434e509a2fa7f65356f0259ad
     home: https://github.com/xmple/charts/tree/master/charts/qbittorrent
@@ -378,9 +398,9 @@ entries:
     version: 0.1.0
   radarr:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.793954305Z"
+    created: "2020-06-06T20:09:48.955779185Z"
     description: Radarr is a movie downloading client
-    digest: f798054bff0608324bd5ff37f24697b23960fd4e17b79b3c76b324e9ac1fbbaa
+    digest: e2422c06dec7880312cf25a2ea7b1c325e7d9ab06057ad5d4f47fe9fd30c5f62
     home: https://github.com/xmple/charts/tree/master/charts/radarr
     icon: https://avatars3.githubusercontent.com/u/25025331?s=400&v=4
     keywords:
@@ -395,7 +415,7 @@ entries:
     - radarr/radarr-2.0.12.tgz
     version: 2.0.12
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.792504916Z"
+    created: "2020-06-06T20:09:48.95509827Z"
     description: Radarr is a movie downloading client
     digest: 9a530262946677dbd0abc5935ff6c456f397270bd85ef51b17a3b492a0193951
     home: https://github.com/xmple/charts/tree/master/charts/radarr
@@ -412,7 +432,7 @@ entries:
     - radarr/radarr-2.0.11.tgz
     version: 2.0.11
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.791785168Z"
+    created: "2020-06-06T20:09:48.95444037Z"
     description: Radarr is a movie downloading client
     digest: 509f386187412660291efaaad85aadb77201284e37cd0a3db8bc7eb4cfc85646
     home: https://github.com/xmple/charts/tree/master/charts/radarr
@@ -430,7 +450,7 @@ entries:
     version: 2.0.10
   - apiVersion: v1
     appVersion: amd64-v0.2.0.1344-ls17
-    created: "2020-06-06T20:05:00.794439429Z"
+    created: "2020-06-06T20:09:48.956435585Z"
     description: Radarr is a movie downloading client
     digest: bcb529ec30c8a0e6a17be516c40402d35f55952ad6b48fd628d8c73c413949d1
     home: https://github.com/xmple/charts/tree/master/charts/radarr
@@ -448,9 +468,9 @@ entries:
     version: 2.0.8
   sonarr:
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.795980221Z"
+    created: "2020-06-06T20:09:48.959054784Z"
     description: Sonarr is a television show downloading client
-    digest: 957f032abc03d2e9db9e1c839892270361c6aed202d068bd6c3052bd0f5d3844
+    digest: 19ae23200056963d775a0659012bbabf1d0815afd05d67dc78156dbbc9b2a68e
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
     icon: https://avatars1.githubusercontent.com/u/1082903?s=400&v=4
     keywords:
@@ -465,7 +485,7 @@ entries:
     - sonarr/sonarr-2.0.13.tgz
     version: 2.0.13
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.795581742Z"
+    created: "2020-06-06T20:09:48.958374783Z"
     description: Sonarr is a television show downloading client
     digest: 4707a7e454257ae89bc3ca68391eff032136afa4e1e086c763791c71b0af89b5
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
@@ -482,7 +502,7 @@ entries:
     - sonarr/sonarr-2.0.12.tgz
     version: 2.0.12
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.795197582Z"
+    created: "2020-06-06T20:09:48.95773111Z"
     description: Sonarr is a television show downloading client
     digest: fb0cc2f5e672acdd0a1ddf448f5c942dca17db2eb591b4d58416b3a903aea7b3
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
@@ -499,7 +519,7 @@ entries:
     - sonarr/sonarr-2.0.11.tgz
     version: 2.0.11
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.794821758Z"
+    created: "2020-06-06T20:09:48.957082296Z"
     description: Sonarr is a television show downloading client
     digest: 977da4e1b05b8f3513dddbfd265ddb744c447acf115872f31cf78b7f9ca8fe0f
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
@@ -516,7 +536,7 @@ entries:
     - sonarr/sonarr-2.0.10.tgz
     version: 2.0.10
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.797082507Z"
+    created: "2020-06-06T20:09:48.961051301Z"
     description: Sonarr is a television show downloading client
     digest: af5a02bb416cbf00b4beb76dc5f487924d2ba24b7367640eb9a9d2d1600918d7
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
@@ -533,7 +553,7 @@ entries:
     - sonarr/sonarr-2.0.9.tgz
     version: 2.0.9
   - apiVersion: v1
-    created: "2020-06-06T20:05:00.796716732Z"
+    created: "2020-06-06T20:09:48.960388943Z"
     description: Sonarr is a television show downloading client
     digest: 26506cf625e1f815483290805f7973fdbf0881abae45d8722740207f7afc0287
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
@@ -551,7 +571,7 @@ entries:
     version: 2.0.8
   - apiVersion: v1
     appVersion: amd64-2.0.0.5321-ls62
-    created: "2020-06-06T20:05:00.796353128Z"
+    created: "2020-06-06T20:09:48.959727796Z"
     description: Sonarr is a television show downloading client
     digest: 80d7d1eb2671da39259bc974989d89b76053825310419b1e32690db9a3033ca4
     home: https://github.com/xmple/charts/tree/master/charts/sonarr
@@ -567,4 +587,4 @@ entries:
     urls:
     - sonarr/sonarr-2.0.7.tgz
     version: 2.0.7
-generated: "2020-06-06T20:05:00.776222102Z"
+generated: "2020-06-06T20:09:48.912740838Z"
